@@ -21,13 +21,15 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         LinearLayoutManager(this)
     }
     private val noteRecyclerAdapter by lazy {
-        NoteRecyclerAdapter(this, DataManager.notes) }
+        NoteRecyclerAdapter(this, DataManager.notes)
+    }
 
     private val courseLayoutManager by lazy {
-        GridLayoutManager(this,2)
+        GridLayoutManager(this, 2)
     }
     private val courseRecyclerAdapter by lazy {
-        CourseRecyclerAdapter(this, DataManager.courses.values.toList()) }
+        CourseRecyclerAdapter(this, DataManager.courses.values.toList())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +44,12 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         displayNotes()
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -118,6 +125,6 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     private fun handleSelection(message: String) {
-        Snackbar.make(recyclerView,message,Snackbar.LENGTH_LONG).show()
+        Snackbar.make(recyclerView, message, Snackbar.LENGTH_LONG).show()
     }
 }
